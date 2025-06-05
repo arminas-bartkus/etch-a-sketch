@@ -19,39 +19,10 @@ for (i = 1; i <= 16; i++) {
 }
 
     let gridSquare = document.querySelectorAll(".gridSquare");
-    let gridSquareArr = Array.from(gridSquare);
 
-        gridSquareArr.forEach((square) => {
-
-            square.setAttribute("className", ".blue")
-
-
-
-            square.addEventListener("onmouseenter", () => {
-        
-            })
-        
+    gridSquare.forEach(square => {
+        square.addEventListener("click", function() {
+            square.setAttribute("style", "background: blue")
         });
-    
-    // .onmouseover = function(square) {
-    //     square.style.backgroundColor = "blue";
-    // };
-
-    // gridSquareArr.forEach((square) => {
-
-    //     console.log(square);
-
-
-        // square.addEventListener("onmouseenter", function() {
-        //     console.log(square);
-        // })
-    // });
-
-  
-
-// Square.forEach.addEventListener("onmouseenter", function(event) {
-    
-//     console.log(event)
-//     console.log(Square);
-//     Square.style.color = "blue;"
-// })
+        
+    });
