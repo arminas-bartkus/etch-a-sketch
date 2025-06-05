@@ -4,7 +4,6 @@ const changeBtn = document.querySelector(".change");
 let lastTenArray = [];
 
 
-
 // Web page intialisation
 
 createGrid();
