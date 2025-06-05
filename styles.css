@@ -8,11 +8,29 @@ body {
 .container {
 
     display: flex;
-    
+    flex-direction: column;
 
 
     height: 750px;
     width: 750px;
-
+    
     border: solid red 2px;
+}
+
+.subContainer {
+
+    display: flex;
+    flex: 1;
+    margin: 0px;
+}
+
+.gridSquare {
+    display: flex;
+    flex: 1;
+    border: solid black 2px;
+    margin: 2px;
+}
+
+.blue {
+    background-color: blue;
 }
