@@ -40,26 +40,24 @@ function addListeners() {
     gridSquare.forEach(square => {
         square.addEventListener("mouseover", function() {
            
-           // Code for generating a random colour for each element
-           // that is moused over
+           // Generate a random colour 
 
             let randomColour = Math.floor(Math.random()*16777215).toString(16);
             let backgroundColorArg = "background: " + "#" + randomColour;
             
-            square.setAttribute("style", backgroundColorArg);
-        
-          
-          
-           // adds moused over square to start of array, removes 11th square
-            lastTenArray.unshift(square); 
-            lastTenArray.splice(10,1);
+            // Increase opacity by 0.1 with every pass over the same element
             
-            // loop that darkens square gradually
-
-            for (i = 0; i <= 9; i++) {
+            if (!square.classList.contains("touched")) {
                 
-                lastTenArray[i].style.opacity = 0.1 + (i * 0.1)
-            };
+                square.classList.add("touched")
+                square.setAttribute("style", backgroundColorArg);
+                square.style.opacity = 0.1; 
+            }
+        
+            else {
+                square.style.opacity =  parseFloat(square.style.opacity) + 0.1;
+            }
+            
 
         });
         
