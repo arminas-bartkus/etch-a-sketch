@@ -1,6 +1,7 @@
 body {
     display: flex;
-    height: 100vh;
+    flex-direction: column;
+    height: 98vh;
     align-items: center;
     justify-content: center;
 }
@@ -11,10 +12,10 @@ body {
     flex-direction: column;
 
 
-    height: 750px;
-    width: 750px;
+    height: 900px;
+    width: 900px;
+    border: solid black 2px 
     
-    border: solid red 2px;
 }
 
 .subContainer {
@@ -27,10 +28,13 @@ body {
 .gridSquare {
     display: flex;
     flex: 1;
-    border: solid black 2px;
-    margin: 2px;
+    border: solid black 1px;
+    margin: 0px;
 }
 
-.blue {
-    background-color: #5f5f83;
+.change {
+    margin: 10px;
+    width: 150px;
+    padding: 10px;
+
 }
