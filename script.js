@@ -1,7 +1,7 @@
 const container = document.querySelector(".container");
 const div = document.querySelectorAll("div");
 const changeBtn = document.querySelector(".change");
-let lastTenArray = [];
+let lastTenArray = Array(10);
 // i loop, creates n (16) divs and makes container their parent
 // j loop, creates n (16 divs and makes sub container their parent)
 // styles.css adds flexbox properties to arrange these divs correctly
@@ -37,26 +37,33 @@ function addListeners() {
             
             square.setAttribute("style", backgroundArg)
         
-        if (lastTenArray.length < 10) {
-            lastTenArray.push(square);
-        }
-        else {
+            // resets border, removes 11th item
             lastTenArray.unshift(square);
+
+            lastTenArray[10].setAttribute("style","border:1px; border-style:solid; opacity: 0.2")
             lastTenArray.splice(10,1);
-        }
+            
+            // loop that adjusts fades opacity gradually of the
+            // last 10 squares moused over
 
-        lastTenArray[5].style.opacity = 0.5
-
+            for (i = 0; i <= 9; i++) {
+                
+                lastTenArray[i].style.opacity = 0.1 + (i * 0.1)
+            }
+            
         });
         
     });
 }
+
+// Web page intialisation
 
 createGrid();
 let gridSquare = document.querySelectorAll(".gridSquare");
 addListeners();
 
 changeBtn.addEventListener("click", function() {
+
 
     let newGridSize = "";
    
@@ -65,6 +72,8 @@ changeBtn.addEventListener("click", function() {
     }
     //Clear existing grid
     container.innerHTML = ""
+
+    // Produces and sets logic for new grid
 
     createGrid(newGridSize);
     gridSquare = document.querySelectorAll(".gridSquare");
