@@ -19,5 +19,5 @@ from 1x1 to 100x100 (all within that original size)
 - Extra credit involves: randomising the colour, that
 hovering the mouse of the grid produces and producing
 a progressive darkening effect equal to 10% per grid
-space hovered over. (i.e. back to its original
-colour within 10 interactions.)
+space hovered over. (i.e. full opacity within 10
+interactions.)

@@ -2,10 +2,7 @@ const container = document.querySelector(".container");
 const div = document.querySelectorAll("div");
 const changeBtn = document.querySelector(".change");
 let lastTenArray = [];
-// i loop, creates n (16) divs and makes container their parent
-// j loop, creates n (16 divs and makes sub container their parent)
-// styles.css adds flexbox properties to arrange these divs correctly
-// via orientation and margin forming a grid
+
 
 
 // Web page intialisation
@@ -15,11 +12,16 @@ let gridSquare = document.querySelectorAll(".gridSquare");
 addListeners();
 
 
+// i loop, creates n (16) divs and makes container their parent
+// j loop, creates n (16) divs and makes sub container their parent
+// flexbox in styles.css arranges divs to form a n x n grid.
+
+
 function createGrid(n = 16) {
 
     for (i = 1; i <= n; i++) {
 
-        let subContainer = document.createElement("div")
+        let subContainer = document.createElement("div");
         subContainer.className = "subContainer";
         container.appendChild(subContainer);
 
@@ -27,10 +29,9 @@ function createGrid(n = 16) {
             let gridSquare = document.createElement("div");
             gridSquare.className = "gridSquare";
             subContainer.appendChild(gridSquare);
-        }
-    }
-
-}
+        };
+    };
+};
 
 
 function addListeners() {
@@ -43,20 +44,17 @@ function addListeners() {
            // that is moused over
 
             let randomColour = Math.floor(Math.random()*16777215).toString(16);
-            let backgroundArg = "background: " + "#" + randomColour;
+            let backgroundColorArg = "background: " + "#" + randomColour;
             
-            square.setAttribute("style", backgroundArg);
+            square.setAttribute("style", backgroundColorArg);
         
           
           
-            // resets border, removes 11th item
-            lastTenArray.unshift(square);
-
-            
+           // adds moused over square to start of array, removes 11th square
+            lastTenArray.unshift(square); 
             lastTenArray.splice(10,1);
             
-            // loop that adjusts fades opacity gradually of the
-            // last 10 squares moused over
+            // loop that darkens square gradually
 
             for (i = 0; i <= 9; i++) {
                 
@@ -74,14 +72,13 @@ changeBtn.addEventListener("click", function() {
 
     let newGridSize = "";
    
-    while (newGridSize < 1 || newGridSize > 100) {
+    while (newGridSize < 1 || newGridSize > 100 || newGridSize == "") {
          newGridSize = prompt("Enter a grid size (1-100)");
     }
     //Clear existing grid
     container.innerHTML = "";
 
     // Produces and sets logic for new grid
-
     createGrid(newGridSize);
     gridSquare = document.querySelectorAll(".gridSquare");
     addListeners();

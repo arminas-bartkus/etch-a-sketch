@@ -4,7 +4,8 @@ body {
     height: 98vh;
     align-items: center;
     justify-content: center;
-    /* background-color: aqua; */
+    background-color: rgb(202,232,189);
+    font-family:'Courier New', Courier, monospace
 }
 
 .container {
@@ -12,10 +13,10 @@ body {
     display: flex;
     flex-direction: column;
 
-    /* background-color: black; */
+    background-color: rgb(221,246,210);
     height: 900px;
     width: 900px;
-    border: solid black 2px 
+    border: solid rgb(176,219,156) 3px 
     
 }
 
@@ -29,13 +30,34 @@ body {
 .gridSquare {
     display: flex;
     flex: 1;
-    border: solid rgba(0, 0, 0, 0.2) 1px;
+    border: solid rgba(176, 219 ,156 ,0.5) 1px;
     margin: 0px;
 }
 
 .change {
     margin: 10px;
-    width: 150px;
+    width: 200px;
     padding: 10px;
+    font-weight: 100;
+    font-style: italic ;
+    font-size: 18px;
+    border: solid rgb(176, 219 ,156);
+    border-radius: 10px;
+    background-color: rgb(176,219,156);
+    color: rgb(236, 250, 229);
+    border: solid;
+}
 
+h1 {
+    font-size: 28px;
+    font-weight: 100;
+    color:rgb(236, 250, 229);
+    background-color: rgb(176,219,156);
+    padding: 5px 10px;
+    border: solid 
+
+}
+
+.change:hover {
+    background-color: rgb(122, 173, 100) ;
 }
