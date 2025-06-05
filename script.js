@@ -1,11 +1,11 @@
 const container = document.querySelector(".container");
 const div = document.querySelectorAll("div");
 const changeBtn = document.querySelector(".change");
+let lastTenArray = [];
 // i loop, creates n (16) divs and makes container their parent
 // j loop, creates n (16 divs and makes sub container their parent)
 // styles.css adds flexbox properties to arrange these divs correctly
 // via orientation and margin forming a grid
-
 
 function createGrid(n = 16) {
 
@@ -25,9 +25,28 @@ function createGrid(n = 16) {
 }
 function addListeners() {
 
+
     gridSquare.forEach(square => {
         square.addEventListener("mouseover", function() {
-            square.setAttribute("style", "background: blue")
+           
+           // Code for generating a random colour for each element
+           // that is moused over
+
+            let randomColour = Math.floor(Math.random()*16777215).toString(16);
+            let backgroundArg = "background: " + "#" + randomColour;
+            
+            square.setAttribute("style", backgroundArg)
+        
+        if (lastTenArray.length < 10) {
+            lastTenArray.push(square);
+        }
+        else {
+            lastTenArray.unshift(square);
+            lastTenArray.splice(10,1);
+        }
+
+        lastTenArray[5].style.opacity = 0.5
+
         });
         
     });
@@ -40,12 +59,10 @@ addListeners();
 changeBtn.addEventListener("click", function() {
 
     let newGridSize = "";
-    console.log(typeof(newGridSize));
+   
     while (newGridSize < 1 || newGridSize > 100) {
          newGridSize = prompt("Enter a grid size (1-100)")
     }
-    
-   
     //Clear existing grid
     container.innerHTML = ""
 
@@ -55,4 +72,4 @@ changeBtn.addEventListener("click", function() {
 
 });
 
-  
+
